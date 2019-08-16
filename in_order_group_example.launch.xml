@@ -1,0 +1,10 @@
+<launch>
+    <in_order_group continue_after_fail="true">
+        <in_order_group>
+            <executable cmd="mkdir ~/my_new_folder"/>
+            <executable cmd="touch ~/my_new_folder/my_file"/>
+            <executable cmd="ls ~/my_new_folder/my_file"/>
+        </in_order_group>
+        <executable cmd="rm -fr ~/my_new_folder"/>
+    </in_order_group>
+</launch>

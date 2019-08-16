@@ -1,0 +1,15 @@
+<launch>
+    <arg name="topic" default="chatter"/>
+    <arg name="talker_name" default="talker"/>
+    <arg name="listener_name" default="listener"/>
+    <arg name="ns" default=""/>
+    <group>
+        <push_ros_namespace namespace="$(var ns)"/>
+        <node pkg="demo_nodes_cpp" exec="talker" name="$(var talker_name)">
+            <remap from="chatter" to="$(var topic)"/>
+        </node>
+        <node pkg="demo_nodes_cpp" exec="listener" name="$(var listener_name)">
+            <remap from="chatter" to="$(var topic)"/>
+        </node>
+    </group>
+</launch>
