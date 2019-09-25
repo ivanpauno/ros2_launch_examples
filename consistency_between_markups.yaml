@@ -1,0 +1,15 @@
+launch:
+- group:
+  - push_ros_namespace:
+    namespace: 'my_ns'
+  - node:
+      pkg: my_pkg
+      exec: my_node
+      param:
+      - name: a_str
+        value: asd
+      - name: an_int_list
+        value: [1, 2, 3]
+  - node:
+      pkg: my_pkg
+      node: another_node

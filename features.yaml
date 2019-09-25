@@ -1,0 +1,25 @@
+launch:
+- arg:
+  name: foo
+  default: foo
+- node:
+    pkg: pkg
+    exec: exec
+    remap:
+    - from: foo
+      to: $(var foo)
+    - from: bar
+      to: bas
+    param:
+    - name: a_str
+      value: asd
+    - name: an_int_list
+      value: [1, 2, 3]
+- executable:
+  cmd: my_cmd
+  env:
+  - name: MY_ENV
+    value: MY_VALUE
+- executable:
+  cmd: my_other_cmd
+  output: screen

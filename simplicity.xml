@@ -1,0 +1,17 @@
+<launch>
+    <arg name="foo" default="foo"/>
+    <arg name="bar" default="bar"/>
+    <group if="$(var condition)">
+        <node pkg="pkg" exec="exec">
+            <remap from="foo" to="$(var foo)"/>
+            <remap from="bar" to="$(var bar)"/>
+            <param name="a_str" value="asd"/>
+            <param name="an_int_list" value="1, 2, 3" value-sep=", "/>
+        </node>        
+        <executable cmd="my_cmd">
+            <env name="MY_ENV" value="MY_VALUE"/>
+            <env name="MY_ENV2" value="MY_VALUE2"/>
+        </executable>
+    </group>
+    <executable cmd="my_other_cmd" output="screen"/>
+</launch>
